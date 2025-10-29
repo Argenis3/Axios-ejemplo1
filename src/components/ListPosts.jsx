@@ -1,27 +1,27 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { getPosts } from "../services/posts";
+import { useState, useEffect } from "react";
+import { getPosts } from "../services/post";
 
 export const ListPosts = () => {
-    const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-            const data = await getPosts();
-            setPosts(data);
-        };
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const data = await getPosts();
+      setPosts(data);
+    };
 
-        fetchPosts();
-    }, []); // Empty dependency array to run only once on mount
+    fetchPosts();
+  }, []);
 
-    return (
+  return (
     <>
-        <h2>Posts</h2>
-        <ul>
-            {posts.map(post => (
-                <li key={post.id}>{post.title}</li>
-            ))}
-        </ul>
+      <h2>Posts</h2>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
     </>
-);
+  );
 };

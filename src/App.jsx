@@ -1,20 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import { ListPosts } from "./components/ListPosts";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-
       <h1 className="text-3xl font-bold text-purple-500">
         Mi primer ejemplo con AXIOS
-        </h1>
-      
+      </h1>
+      <ListPosts />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
